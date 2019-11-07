@@ -1,9 +1,10 @@
 <?php
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('home');
 });
 
-Auth::routes();
+Route::resource('charts', 'ChartController');
+Route::post('/charts/{chart}/datasets', 'ChartDatasetController@store');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Auth::routes();
