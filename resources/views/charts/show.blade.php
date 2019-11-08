@@ -115,9 +115,7 @@
 @if(isset($air_inf_max))
   <script> 
     var max_val = "{{$air_inf_max}}";  
-    /* var jobs = JSON.parse("{{ json_encode($chart) }}"); */
-    /* alert(jobs); */
-    if(max_val <= 100 && max_val >= 25){
+    if(max_val >= 25){
       document.getElementsByClassName('alert')[0].style.setProperty("display", "block");
     }
     else if(max_val < 25 && max_val >= 15){
