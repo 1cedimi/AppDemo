@@ -19,7 +19,7 @@
     <h1 class="title">Demo project!</h1>
     <p>The project demonstrates back-end and front-end technologies. 
       Example idea of this project is to list charts of different cities worldwide and show data to the users.
-      Authenticated users have possibilty for interaction with the data with CRUD functionality.
+      Authenticated users have access for data interaction with CRUD functionality.
     </p>
     @if (Route::has('login'))
       @auth
