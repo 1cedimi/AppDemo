@@ -11,6 +11,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // $this->call(UsersTableSeeder::class);
+      factory(App\User::class, 2)->create();
+      factory(App\Chart::class, 15)->create()->each(function ($chart) {
+        $chart->dataset()->createMany
+        (factory(App\Dataset::class, 50)->make()->toArray());
+      });
+      
+      /* factory(App\Dataset::class, 100)->create(); */
+
+      /* $this->call([
+        UsersTableSeeder::class,
+        ChartsTableSeeder::class,
+        DatasetsTableSeeder::class,
+      ]) */
+      
     }
 }

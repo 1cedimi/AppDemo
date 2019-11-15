@@ -14,14 +14,15 @@ class CreateDatasetsTable extends Migration
   public function up()
   {
     Schema::create('datasets', function (Blueprint $table) {
-      /* $table->bigIncrements('id'); */
+      $table->bigIncrements('id');
       $table->unsignedBigInteger('chart_id');
       $table->foreign('chart_id')
             ->references('id')
             ->on('charts')
             ->onDelete('cascade');
       $table->date('date');
-      $table->primary(['chart_id', 'date']); //composite key
+      /* $table->primary(['chart_id', 'date']); //composite key */
+      $table->unique( array('chart_id', 'date') );
       $table->decimal('temperature', 3, 1)->nullable();
       $table->decimal('air_infection', 5, 2)->nullable();
       $table->timestamps();

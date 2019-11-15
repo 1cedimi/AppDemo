@@ -12,7 +12,7 @@
         @auth
         {{-- <li class="nav-item"><a class="nav-link" href="/home">home</a></li> --}}
         @endauth
-        <li class="nav-item"><a class="nav-link" href="/feedback">Feedback</a></li>
+       {{--  <li class="nav-item"><a class="nav-link" href="/feedback">Feedback</a></li> --}}
       </ul>
 
       <ul class="navbar-nav navbar-right">  

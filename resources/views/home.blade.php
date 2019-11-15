@@ -4,13 +4,22 @@
 @push('head')
 <style>
   .col-sm-4 li:hover{
-    margin-left: 4px;
+    font-weight: bold;
   }
   
   .title{
     font-size: 84px;
     color: #636b6f;
   } 
+  .jumbotron{
+    border-style: solid;
+    -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  }
+  .jumbotron:hover{
+    
+  }
 </style>
 @endpush
 

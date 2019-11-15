@@ -24,10 +24,10 @@
 <footer>
   <div class="footer-copyright text-center py-3">
     <div class="icons">
-      <a href="https://www.linkedin.com" target="_blank" title="LinkedIn">
+      <a href="https://www.linkedin.com/in/dmitri-kalinin-1109247a/" target="_blank" title="LinkedIn">
         <span class="fab fa-linkedin"></span>
       </a>
-      <a href="https://www.github.com" target="_blank" title="Github">
+      <a href="https://github.com/1cedimi" target="_blank" title="Github">
         <span class="fab fa-github-square"></span>
       </a>      
     </div>
