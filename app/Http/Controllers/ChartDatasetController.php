@@ -10,7 +10,7 @@ class ChartDatasetController extends Controller
   public function store(Chart $chart)
   {
     request()->validate([
-      'date' => 'required|date',
+      'date' => 'required|date|unique:datasets',
       'temperature' => 'required|max:3',
       'air_infection' => 'required|max:6'
     ]);

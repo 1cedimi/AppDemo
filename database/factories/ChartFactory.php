@@ -4,9 +4,14 @@
 
 use Faker\Generator as Faker;
 
-$factory->define(App\Chart::class, function (Faker $faker) {
+$factory->define(\App\Chart::class, function (Faker $faker) {
+    $city = (string)$faker->city;
+    $city = substr($city,0,18); // max title is 18 characters
+
     return [
-      'name' => $faker->city,
-      'description' => $faker->sentence(50),
+      'name' => $city,
+      'creator_id' => NULL,
+      'description' => $faker->sentence($faker->numberBetween(30,50)),
+      'active' => '1'
     ];
 });

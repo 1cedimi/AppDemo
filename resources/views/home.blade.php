@@ -26,9 +26,14 @@
 <div class="container">
   <div class="jumbotron text-center">
     <h1 class="title">Demo project!</h1>
-    <p>The project demonstrates back-end and front-end technologies. 
-      Example idea of this project is to list charts of different cities worldwide and show data to the users.
-      Authenticated users have access for data interaction with CRUD functionality.
+    <p>The project demonstrates some of the Laravel framework functionality.
+      Guest users can see list of public charts of different cities worldwide.
+      In this project example each city can have some data parameters in charts with warnings messages according to data values ​​limits.
+      Authentication is designed in a way that registered users has ability to create new charts with random generated data by default.
+      Role based system is applied in the project therefore registered users receive "User" role by default
+      which also allows them to view, edit and delete charts but only those which are created by themselves.
+      On the other hand those charts are not set as public by default therefore are not visible to the guests or other users with basic "User" role.
+      Only "Admin" role user is eligible to view all charts and has full control over them.
     </p>
     @if (Route::has('login'))
       @auth
@@ -40,6 +45,17 @@
   </div>
   <div class="row">
     <div class="col-sm-4">
+      <h2 class="text-center">Project functionality
+      </h2>
+      <ul>
+        <li>Database migrations</li>
+        <li>Database seeders with random faker data</li>
+        <li>Authentication</li> 
+        <li>Eloquent Many to Many relationship for Role based system</li>
+        <li>CRUD functionality</li>
+      </ul>
+  </div>
+    <div class="col-sm-4">
         <h2 class="text-center">Project techs</h2>
         <ul>
           <li>Laravel framework</li> 
@@ -47,23 +63,14 @@
           <li>Bootstrap.js library</li>
           <li>Dygraphs.js library</li>
         </ul>
-      </div>
+    </div>
     <div class="col-sm-4">
       <h2 class="text-center">Laravel benefits</h2>
       <ul>
-        <li>Fast and simplifies majority of tasks such as Authentication</li>
+        <li>Fast and simplifies majority of tasks</li>
         <li>Object oriented libraries and model-controller-view (MVC) architecture </li>
         <li>Highly Secure(XSS, CSRF, SQL injections)</li>
         <li>Most popular PHP framework</li>
-      </ul>
-    </div>
-    <div class="col-sm-4">
-      <h2 class="text-center">Laravel features</h2>
-      <ul>        
-        <li>Artisan command line tool</li>
-        <li>Eloquent service for model part</li>
-        <li>Blade template engine</li>
-        <li>Database Migrations</li>
       </ul>
     </div>
   </div>

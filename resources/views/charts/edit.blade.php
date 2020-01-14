@@ -18,8 +18,8 @@
 
         <div class="form-group">
           <label>Description:</label>
-          <input type="textarea" class="form-control" name="description" value="{{$chart->description}}"
-          placeholder="Description" maxlength="300">
+          <textarea class="form-control" name="description" placeholder="Description"
+          rows="5" maxlength="300">{{$chart->description}}</textarea>
         </div>
 
         <button type="submit" class="btn btn-primary float-left">Update</button>
@@ -29,7 +29,8 @@
 				@method('DELETE')
 				@csrf
 				<button type="submit" class="btn btn-danger float-right">Delete</button>
-			</form>
+      </form>
+      
 			<div class="clearfix"></div>
     </div>
 	</div>

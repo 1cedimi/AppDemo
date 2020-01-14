@@ -15,7 +15,12 @@ class CreateChartsTable extends Migration
   {
     Schema::create('charts', function (Blueprint $table) {
       $table->bigIncrements('id');
-      $table->string('name', 50)->unique();
+      $table->unsignedBigInteger('creator_id')->nullable();
+      $table->foreign('creator_id')
+            ->references('id')
+            ->on('users')
+            ->onDelete('cascade');
+      $table->string('name', 18)->unique();
       $table->text('description')->nullable();
       $table->boolean('active')->default(false);
       $table->timestamps();

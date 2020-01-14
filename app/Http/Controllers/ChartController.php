@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers;
 use App\Chart;
+use App\Dataset;
 use Illuminate\Http\Request;
 
 class ChartController extends Controller
 {
   public function __construct()
   {
-    $this->middleware('auth', ['except' => ['index', 'show']]);
+    $this->middleware('auth', ['except' => ['index', 'show']]);   
   }
 
   public function index()
@@ -45,16 +46,22 @@ class ChartController extends Controller
       'description'=> 'max:300'
     ]);
 
-    Chart::create([
+    $chart = Chart::create([
       'name' => request('name'),
-      'description' => request('description')
+      'description' => request('description'),
+      'creator_id' => auth()->id(),
+      'active' => '0'
     ]);
+    $chart->dataset()->createMany
+    (factory(Dataset::class, 50)->make()->toArray());
 
-    return redirect('/charts')->with('success', 'Chart is created');
+    return redirect('/charts')->with('success', "New chart is created");
   }
 
   public function edit(Chart $chart)
   {
+    $this->authorize('edit', $chart);
+    /* abort_unless(auth()->id() == $chart->creator_id, 403); */
     return view('charts.edit')->with('chart', $chart);
   }
 
@@ -76,13 +83,15 @@ class ChartController extends Controller
       'description' => request('description')
     ]);
 
-    return redirect('/charts')->with('success', 'Chart is updated');
+    return redirect('/charts')->with('success', "$chart->name is updated");
   }
 
   public function destroy(Chart $chart)
   {
+    $this->authorize('destroy', $chart);
+    /* abort_unless(auth()->id() == $chart->creator_id, 403); */
     $chart->delete();
-
-    return redirect('/charts')->with('success', 'Chart is deleted');
+  
+    return redirect('/charts')->with('success', "$chart->name is deleted");
   }
 }

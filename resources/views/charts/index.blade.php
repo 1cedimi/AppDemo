@@ -48,27 +48,31 @@
     <div class="row">
       @if(count($charts) > 0)
         @foreach ($charts as $chart)
+        @can('show', $chart)
           <div class="col-lg-4 col-md-6 col-sm-12">
             <div class="border rounded">
               <a href="/charts/{{$chart->id}}">
                 <i class="fas fa-globe fa-4x float-right"></i> 
                 <h2>{{$chart->name}}</h2>
               </a>  
-              @if (Auth::check())
+              @can('edit', $chart)
                 <a class="btn btn-outline-primary float-left mr-2" 
                 href="/charts/{{$chart->id}}/edit">Edit</a>
+              @endcan  
+              @can('destroy', $chart)
                 <form method="POST" action="/charts/{{$chart->id}}"> 
                   @method('DELETE')
                   @csrf
                   <button type="submit" class="btn btn-outline-danger">Delete</button>
                 </form>
                 <div class="clearfix"></div>
-              @endif
+              @endcan
               <div class="hidden-desc">
                 <p>{{$chart->description}}</p>
               </div>
             </div>
           </div>
+        @endcan
         @endforeach
       @else
       <div class="col-md-12">

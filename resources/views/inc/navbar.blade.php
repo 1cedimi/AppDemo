@@ -12,7 +12,6 @@
         @auth
         {{-- <li class="nav-item"><a class="nav-link" href="/home">home</a></li> --}}
         @endauth
-       {{--  <li class="nav-item"><a class="nav-link" href="/feedback">Feedback</a></li> --}}
       </ul>
 
       <ul class="navbar-nav navbar-right">  
@@ -37,9 +36,9 @@
         <li class="nav-item">
           <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
         </li>
-        {{-- <li class="nav-item">
+        <li class="nav-item">
           <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-        </li> --}}
+        </li>
         @endauth
       </ul>  
     </div>

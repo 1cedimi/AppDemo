@@ -1,8 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
-
-class DatasetsTableSeeder extends Seeder
+use App\Role;
+class RolesTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,6 +11,7 @@ class DatasetsTableSeeder extends Seeder
      */
     public function run()
     {
-      factory(\App\Dataset::class, 50)->create();
+      Role::create(['name' => 'Admin']);
+      Role::create(['name' => 'User']);
     }
 }
